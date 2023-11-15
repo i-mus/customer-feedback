@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Please rate your service{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <img src="../static/logo.png" alt="our logo" class="logo">
+{% if message %}
+<p class="message">{{message}}</p>
+{% endif %}
+<form action="/submit" method="POST">
+    <div class="form-group">
+        <h3>Customer Name</h3>
+        <input
+         type="text"
+         placeholder="Name of vehicle owner"
+         name="customer"
+         required>
+    </div>
+    <div class="form-group">
+        <h3>Dealer</h3>
+        <select name="dealer" id="" required>
+            <option value="" selected>Select dealer</option>
+            <option value="Tom">Tom</option>
+            <option value="Karen">Karen</option>
+            <option value="Jim">Jim</option>
+            <option value="Shauna">Shauna</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <h3>Please rate your dealer</h3>
+        <input type="radio" value="1" name="rating"> 1
+        <input type="radio" value="2" name="rating"> 2
+        <input type="radio" value="3" name="rating"> 3
+        <input type="radio" value="4" name="rating"> 4
+        <input type="radio" value="5" name="rating"> 5
+        <input type="radio" value="6" name="rating"> 6
+        <input type="radio" value="7" name="rating"> 7
+        <input type="radio" value="8" name="rating"> 8
+        <input type="radio" value="9" name="rating"> 9
+        <input type="radio" value="10" name="rating" checked> 10
+    </div>
+    <div class="form-group">
+        <h3>Comments about your experience(optional)</h3>
+        <textarea name="comments" id="" cols="30" rows="10"></textarea>
+    </div>
+    <input type="submit" value="Submit" class="btn">
+
+</form>
+<h2>{{customer}}</h2>
+
+</div>
+
+
+{% endblock %}
